@@ -1,10 +1,12 @@
-.plyr__controls input[type=range]::-webkit-slider-runnable-track{
+.plyr__controls input[type=range]::-webkit-slider-runnable-track {
 	box-shadow: none;
 }
-.plyr--audio .plyr__controls{
+
+.plyr--audio .plyr__controls {
 	background: transparent;
 }
-.vapfem_not_found{
+
+.vapfem_not_found {
 	text-align: center;
 	background: #1AAFFF;
 	color: #fff;
@@ -19,14 +21,15 @@
 .theme-customify .plyr [data-plyr=captions],
 .theme-customify .plyr [data-plyr=fullscreen],
 .theme-customify .plyr [data-plyr=pip],
-body.theme-customify .elementor-widget-vapfem_audio_player .plyr__control--overlaid{
-    display: none;
+body.theme-customify .elementor-widget-vapfem_audio_player .plyr__control--overlaid {
+	display: none;
 }
-.theme-customify .plyr--full-ui input[type=range]{
+
+.theme-customify .plyr--full-ui input[type=range] {
 	box-shadow: none;
 }
 
 /*BeTheme support*/
-.plyr button{
+.plyr button {
 	margin-bottom: 0;
 }

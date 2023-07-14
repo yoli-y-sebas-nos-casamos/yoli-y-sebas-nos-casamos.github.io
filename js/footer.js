@@ -19,7 +19,7 @@ function play_mp3(flg, ids, mp3url, volume, loops) {
 
 	if (flg == 'play') {
 		soundManager.play('btnplay_' + ids, {
-			onfinish: function () {
+			onfinish: function() {
 				if (loops == 'true') {
 					loopSound('btnplay_' + ids);
 				}
@@ -46,9 +46,9 @@ function show_hide(flag, ids) {
 	}
 }
 function loopSound(soundID) {
-	window.setTimeout(function () {
+	window.setTimeout(function() {
 		soundManager.play(soundID, {
-			onfinish: function () {
+			onfinish: function() {
 				loopSound(soundID);
 			}
 		});
