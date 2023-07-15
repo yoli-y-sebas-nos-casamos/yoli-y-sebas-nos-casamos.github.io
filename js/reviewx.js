@@ -180,35 +180,35 @@
 		review: function(page) {
 			$('.rx_double_spinner').show();
 
-			$.ajax({
-				url: rx_ajax_data.ajax_url,
-				type: 'post',
-				data: {
-					action: 'rx_sorting',
-					selected: $('select.rx_shorting').children("option:selected").val(),
-					rx_product_id: $('.rx_product_id').val(),
-					security: $(".rx-sort-nonce").val(),
-					rx_post_type: $('#rx-sorting-post-type').val(),
-					rx_pagination: $('#rx-allow-shortcode-pagination').val(),
-					page: page,
-					per_page: $('#rx-pagination-limit').val(),
-					rx_rating: $('#rx-product-rating').val(),
-					user_id: $('#rx-user-id').val(),
-					rx_post_title: $("#rx-product-title").val(),
-				},
-				success: function(data) {
-					$('.rx_listing .rx_double_spinner').hide();
-					$([document.documentElement, document.body]).animate({
-						scrollTop: $(".rx_filter_header").offset().top
-					}, 500);
-					$('.rx_review_sort_list').html(data);
-					rx_image_popup(); //Popup image
-				},
-				error: function(err) {
-					$('.rx_listing .rx_double_spinner').hide();
-					console.log(err + 'Error....');
-				}
-			});
+//			$.ajax({
+//				url: rx_ajax_data.ajax_url,
+//				type: 'post',
+//				data: {
+//					action: 'rx_sorting',
+//					selected: $('select.rx_shorting').children("option:selected").val(),
+//					rx_product_id: $('.rx_product_id').val(),
+//					security: $(".rx-sort-nonce").val(),
+//					rx_post_type: $('#rx-sorting-post-type').val(),
+//					rx_pagination: $('#rx-allow-shortcode-pagination').val(),
+//					page: page,
+//					per_page: $('#rx-pagination-limit').val(),
+//					rx_rating: $('#rx-product-rating').val(),
+//					user_id: $('#rx-user-id').val(),
+//					rx_post_title: $("#rx-product-title").val(),
+//				},
+//				success: function(data) {
+//					$('.rx_listing .rx_double_spinner').hide();
+//					$([document.documentElement, document.body]).animate({
+//						scrollTop: $(".rx_filter_header").offset().top
+//					}, 500);
+//					$('.rx_review_sort_list').html(data);
+//					rx_image_popup(); //Popup image
+//				},
+//				error: function(err) {
+//					$('.rx_listing .rx_double_spinner').hide();
+//					console.log(err + 'Error....');
+//				}
+//			});
 		},
 		show: function(page) {
 			var _self = this;
@@ -430,68 +430,68 @@
 				value: $('#rx-video-source-control').val()
 			});
 
-			$.ajax({
-				url: rx_ajax_data.ajax_url,
-				type: 'post',
-				data: {
-					action: 'review_submit_from_myorder',
-					forminput: data,
-					rx_review_text: $("#rx_text").val(),
-					security: $("#rx-nonce").val()
-				},
-				success: function(data) {
-					$(".rx-lds-css").hide();
-					$("#rx-submit").attr("disabled", false);
-					$(".rx-cancel").attr("disabled", false);
-
-					if (data.success == true) {
-						$("#rx-submit").parent().siblings().closest('.rx-form-submit-status').fadeIn().addClass('success').text(rx_ajax_data.review_success_msg);
-						if (data.status == 0) {
-							$("#rx-submit").parent().siblings().closest('.rx-form-submit-notice').fadeIn().addClass('rx-notice').html(rx_ajax_data.review_status_msg);
-						}
-						$.ajax({
-							url: rx_ajax_data.ajax_url,
-							type: 'post',
-							data: {
-								action: 'rx_review_notification_email',
-								submit_review: true,
-								from_data: data,
-								security: rx_ajax_data.ajax_nonce
-							},
-							success: function(data) {
-								console.log(data);
-							}
-						});
-
-						$.ajax({
-							url: rx_ajax_data.ajax_url,
-							type: 'post',
-							data: {
-								action: 'rx_review_coupon_email',
-								submit_review: true,
-								from_data: data,
-								security: rx_ajax_data.ajax_nonce
-							},
-							success: function(response) {
-								console.log('success:', response);
-							}
-						});
-
-						setTimeout(function() {
-							window.location.reload();
-						}, 1800);
-					} else if (data.success == false) {
-						$("#rx-submit").parent().siblings().closest('.rx-form-submit-status').fadeIn().addClass('error').text(rx_ajax_data.review_failed_msg);
-					} else {
-						$("#rx-submit").parent().siblings().closest('.rx-form-submit-status').fadeIn().addClass('error').html(data).text();
-					}
-				},
-				error: function(err) {
-					$(".rx-lds-css").hide();
-					$("#rx-submit").attr("disabled", false);
-					$(".rx-cancel").attr("disabled", false);
-				}
-			});
+//			$.ajax({
+//				url: rx_ajax_data.ajax_url,
+//				type: 'post',
+//				data: {
+//					action: 'review_submit_from_myorder',
+//					forminput: data,
+//					rx_review_text: $("#rx_text").val(),
+//					security: $("#rx-nonce").val()
+//				},
+//				success: function(data) {
+//					$(".rx-lds-css").hide();
+//					$("#rx-submit").attr("disabled", false);
+//					$(".rx-cancel").attr("disabled", false);
+//
+//					if (data.success == true) {
+//						$("#rx-submit").parent().siblings().closest('.rx-form-submit-status').fadeIn().addClass('success').text(rx_ajax_data.review_success_msg);
+//						if (data.status == 0) {
+//							$("#rx-submit").parent().siblings().closest('.rx-form-submit-notice').fadeIn().addClass('rx-notice').html(rx_ajax_data.review_status_msg);
+//						}
+//						$.ajax({
+//							url: rx_ajax_data.ajax_url,
+//							type: 'post',
+//							data: {
+//								action: 'rx_review_notification_email',
+//								submit_review: true,
+//								from_data: data,
+//								security: rx_ajax_data.ajax_nonce
+//							},
+//							success: function(data) {
+//								console.log(data);
+//							}
+//						});
+//
+//						$.ajax({
+//							url: rx_ajax_data.ajax_url,
+//							type: 'post',
+//							data: {
+//								action: 'rx_review_coupon_email',
+//								submit_review: true,
+//								from_data: data,
+//								security: rx_ajax_data.ajax_nonce
+//							},
+//							success: function(response) {
+//								console.log('success:', response);
+//							}
+//						});
+//
+//						setTimeout(function() {
+//							window.location.reload();
+//						}, 1800);
+//					} else if (data.success == false) {
+//						$("#rx-submit").parent().siblings().closest('.rx-form-submit-status').fadeIn().addClass('error').text(rx_ajax_data.review_failed_msg);
+//					} else {
+//						$("#rx-submit").parent().siblings().closest('.rx-form-submit-status').fadeIn().addClass('error').html(data).text();
+//					}
+//				},
+//				error: function(err) {
+//					$(".rx-lds-css").hide();
+//					$("#rx-submit").attr("disabled", false);
+//					$(".rx-cancel").attr("disabled", false);
+//				}
+//			});
 		}
 
 	});
@@ -550,65 +550,65 @@
 	$(document).ready(function() {
 		$(document).on('change', "select.rx_shorting", function() {
 			$('.rx_double_spinner').show();
-			$.ajax({
-				url: rx_ajax_data.ajax_url,
-				type: 'post',
-				data: {
-					action: 'rx_sorting',
-					selected: $(this).children("option:selected").val(),
-					rx_product_id: $('.rx_product_id').val(),
-					security: $(".rx-sort-nonce").val(),
-					rx_post_type: $('#rx-sorting-post-type').val(),
-					rx_pagination: $('#rx-allow-shortcode-pagination').val(),
-					page: 1,
-					per_page: $('#rx-pagination-limit').val(),
-					rx_rating: $('#rx-product-rating').val(),
-					user_id: $('#rx-user-id').val(),
-					rx_post_title: $("#rx-product-title").val(),
-				},
-				success: function(data) {
-
-					$('.rx_listing .rx_double_spinner').hide();
-					$('.rx_review_sort_list').html(data);
-					rx_image_popup(); //Popup image
-				},
-				error: function(err) {
-					$('.rx_listing .rx_double_spinner').hide();
-					console.log(err + 'Error....');
-				}
-			});
+//			$.ajax({
+//				url: rx_ajax_data.ajax_url,
+//				type: 'post',
+//				data: {
+//					action: 'rx_sorting',
+//					selected: $(this).children("option:selected").val(),
+//					rx_product_id: $('.rx_product_id').val(),
+//					security: $(".rx-sort-nonce").val(),
+//					rx_post_type: $('#rx-sorting-post-type').val(),
+//					rx_pagination: $('#rx-allow-shortcode-pagination').val(),
+//					page: 1,
+//					per_page: $('#rx-pagination-limit').val(),
+//					rx_rating: $('#rx-product-rating').val(),
+//					user_id: $('#rx-user-id').val(),
+//					rx_post_title: $("#rx-product-title").val(),
+//				},
+//				success: function(data) {
+//
+//					$('.rx_listing .rx_double_spinner').hide();
+//					$('.rx_review_sort_list').html(data);
+//					rx_image_popup(); //Popup image
+//				},
+//				error: function(err) {
+//					$('.rx_listing .rx_double_spinner').hide();
+//					console.log(err + 'Error....');
+//				}
+//			});
 		});
 
 		$(document).on('click', ".rx-tooltip", function() {
 			$('.rx_double_spinner').show();
 			let rating = $(this).data('rating');
 			$('#rx-product-rating').val(rating);
-			$.ajax({
-				url: rx_ajax_data.ajax_url,
-				type: 'post',
-				data: {
-					action: 'rx_sorting',
-					selected: 'tooltip_filter',
-					rx_product_id: $('.rx_product_id').val(),
-					security: $(".rx-sort-nonce").val(),
-					rx_post_type: $('#rx-sorting-post-type').val(),
-					rx_pagination: $('#rx-allow-shortcode-pagination').val(),
-					page: 1,
-					per_page: $('#rx-pagination-limit').val(),
-					rx_rating: rating,
-					user_id: $('#rx-user-id').val(),
-					rx_post_title: $("#rx-product-title").val(),
-				},
-				success: function(data) {
-					$('.rx_listing .rx_double_spinner').hide();
-					$('.rx_review_sort_list').html(data);
-					rx_image_popup(); //Popup image
-				},
-				error: function(err) {
-					$('.rx_listing .rx_double_spinner').hide();
-					console.log(err + 'Error....');
-				}
-			});
+//			$.ajax({
+//				url: rx_ajax_data.ajax_url,
+//				type: 'post',
+//				data: {
+//					action: 'rx_sorting',
+//					selected: 'tooltip_filter',
+//					rx_product_id: $('.rx_product_id').val(),
+//					security: $(".rx-sort-nonce").val(),
+//					rx_post_type: $('#rx-sorting-post-type').val(),
+//					rx_pagination: $('#rx-allow-shortcode-pagination').val(),
+//					page: 1,
+//					per_page: $('#rx-pagination-limit').val(),
+//					rx_rating: rating,
+//					user_id: $('#rx-user-id').val(),
+//					rx_post_title: $("#rx-product-title").val(),
+//				},
+//				success: function(data) {
+//					$('.rx_listing .rx_double_spinner').hide();
+//					$('.rx_review_sort_list').html(data);
+//					rx_image_popup(); //Popup image
+//				},
+//				error: function(err) {
+//					$('.rx_listing .rx_double_spinner').hide();
+//					console.log(err + 'Error....');
+//				}
+//			});
 		});
 	});
 
@@ -771,69 +771,69 @@
 					name: 'rx-video-source-control',
 					value: $('#rx-video-source-control').val()
 				});
-				$.ajax({
-					url: rx_ajax_data.ajax_url,
-					type: 'post',
-					data: {
-						action: 'rx_front_end_review_submit',
-						formInput: data,
-						rx_review_text: $("#comment").val(),
-						security: rx_ajax_data.ajax_nonce
-					},
-					success: function(data) {
-						if (data.success == true) {
-							$.ajax({
-								url: rx_ajax_data.ajax_url,
-								type: 'post',
-								data: {
-									action: 'rx_review_notification_email',
-									submit_review: true,
-									from_data: data,
-									security: rx_ajax_data.ajax_nonce
-								},
-								success: function(response) {
-									console.log('success:', response);
-								}
-							});
-
-							$.ajax({
-								url: rx_ajax_data.ajax_url,
-								type: 'post',
-								data: {
-									action: 'rx_review_coupon_email',
-									submit_review: true,
-									from_data: data,
-									security: rx_ajax_data.ajax_nonce
-								},
-								success: function(response) {
-									console.log('success:', response);
-								}
-							});
-
-							$("#attachmentForm input[type=submit]").parent().before("<div class='rx-form-submit-status success' style='display:block;'>" + rx_ajax_data.review_success_msg + "</div>");
-							if (data.status == 0) {
-								$("#attachmentForm input[type=submit]").parent().before("<div class='rx-form-submit-status rx-notice' style='display:block;'>" + rx_ajax_data.review_status_msg + "</div>");
-							}
-							$("#review_title").val('');
-							$("#comment").val('');
-							$("#author").val('');
-							$("#email").val('');
-
-							setTimeout(function() {
-								window.location.reload();
-							}, 2000);
-						} else if (data.success == false) {
-							$("#attachmentForm input[type=submit]").parent().before("<div class='rx-form-submit-status error' style='display:block;'>" + rx_ajax_data.review_failed_msg + "</div>");
-						} else {
-							$("#attachmentForm input[type=submit]").parent().before("<div class='rx-form-submit-status error' style='display:block;'>" + data + "</div>");
-						}
-						$("#attachmentForm input[type=submit]").prop('disabled', false);
-
-					},
-					error: function(err) {
-						$("#attachmentForm input[type=submit]").parent().before("<div class='rx-form-submit-status error' style='display:block;'>Sorry something went wrong.</div>");
-					}
-				});
+//				$.ajax({
+//					url: rx_ajax_data.ajax_url,
+//					type: 'post',
+//					data: {
+//						action: 'rx_front_end_review_submit',
+//						formInput: data,
+//						rx_review_text: $("#comment").val(),
+//						security: rx_ajax_data.ajax_nonce
+//					},
+//					success: function(data) {
+//						if (data.success == true) {
+//							$.ajax({
+//								url: rx_ajax_data.ajax_url,
+//								type: 'post',
+//								data: {
+//									action: 'rx_review_notification_email',
+//									submit_review: true,
+//									from_data: data,
+//									security: rx_ajax_data.ajax_nonce
+//								},
+//								success: function(response) {
+//									console.log('success:', response);
+//								}
+//							});
+//
+//							$.ajax({
+//								url: rx_ajax_data.ajax_url,
+//								type: 'post',
+//								data: {
+//									action: 'rx_review_coupon_email',
+//									submit_review: true,
+//									from_data: data,
+//									security: rx_ajax_data.ajax_nonce
+//								},
+//								success: function(response) {
+//									console.log('success:', response);
+//								}
+//							});
+//
+//							$("#attachmentForm input[type=submit]").parent().before("<div class='rx-form-submit-status success' style='display:block;'>" + rx_ajax_data.review_success_msg + "</div>");
+//							if (data.status == 0) {
+//								$("#attachmentForm input[type=submit]").parent().before("<div class='rx-form-submit-status rx-notice' style='display:block;'>" + rx_ajax_data.review_status_msg + "</div>");
+//							}
+//							$("#review_title").val('');
+//							$("#comment").val('');
+//							$("#author").val('');
+//							$("#email").val('');
+//
+//							setTimeout(function() {
+//								window.location.reload();
+//							}, 2000);
+//						} else if (data.success == false) {
+//							$("#attachmentForm input[type=submit]").parent().before("<div class='rx-form-submit-status error' style='display:block;'>" + rx_ajax_data.review_failed_msg + "</div>");
+//						} else {
+//							$("#attachmentForm input[type=submit]").parent().before("<div class='rx-form-submit-status error' style='display:block;'>" + data + "</div>");
+//						}
+//						$("#attachmentForm input[type=submit]").prop('disabled', false);
+//
+//					},
+//					error: function(err) {
+//						$("#attachmentForm input[type=submit]").parent().before("<div class='rx-form-submit-status error' style='display:block;'>Sorry something went wrong.</div>");
+//					}
+//				});
 			}
 
 		});
@@ -884,23 +884,23 @@
 		rx_img.append('security', rx_ajax_data.ajax_nonce);
 
 		$('.rx_image_upload_spinner').show();
-		$.ajax({
-			url: rx_ajax_data.ajax_url,
-			contentType: false,
-			processData: false,
-			type: 'post',
-			data: rx_img,
-			success: function(data) {
-				$(wrapper).prepend(data.image);
-				if (data.message != null) {
-					$('.rx-guest-attachment-error').text(data.message);
-				}
-				$('.rx_image_upload_spinner').hide();
-			},
-			error: function(error) {
-				$('.rx_image_upload_spinner').hide();
-			}
-		});
+//		$.ajax({
+//			url: rx_ajax_data.ajax_url,
+//			contentType: false,
+//			processData: false,
+//			type: 'post',
+//			data: rx_img,
+//			success: function(data) {
+//				$(wrapper).prepend(data.image);
+//				if (data.message != null) {
+//					$('.rx-guest-attachment-error').text(data.message);
+//				}
+//				$('.rx_image_upload_spinner').hide();
+//			},
+//			error: function(error) {
+//				$('.rx_image_upload_spinner').hide();
+//			}
+//		});
 	});
 
 	let wrapper = $('#rx-images'); //Input image wrapper
@@ -908,21 +908,21 @@
 		e.preventDefault();
 		let $that = $(this);
 		let attach_id = $(this).siblings(".rx-image").val();
-		jQuery.ajax({
-			url: rx_ajax_data.ajax_url,
-			type: 'post',
-			data: {
-				action: 'rx_remove_guest_image',
-				attach_id: attach_id,
-				security: rx_ajax_data.ajax_nonce
-			},
-			success: function(data) {
-				$($that).parent().remove(); //Remove image
-			},
-			error: function(err) {
-				console.log(err);
-			}
-		});
+//		jQuery.ajax({
+//			url: rx_ajax_data.ajax_url,
+//			type: 'post',
+//			data: {
+//				action: 'rx_remove_guest_image',
+//				attach_id: attach_id,
+//				security: rx_ajax_data.ajax_nonce
+//			},
+//			success: function(data) {
+//				$($that).parent().remove(); //Remove image
+//			},
+//			error: function(err) {
+//				console.log(err);
+//			}
+//		});
 	});
 
 	$(document).on('click', '.rx-media-upload-button', function() {

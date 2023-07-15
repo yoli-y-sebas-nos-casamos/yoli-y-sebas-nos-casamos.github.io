@@ -1845,7 +1845,7 @@ body .elementor-7499 .elementor-element.elementor-element-49008c6 .elementor-lab
 	}
 
 	.elementor-7499 .elementor-element.elementor-element-b61ded6>.elementor-widget-container {
-		margin: -115px 0px -59px 0px;
+		margin: -120px 0px -59px 0px;
 		padding: 28px 0px 0px 0px;
 	}
 
@@ -2654,10 +2654,15 @@ body .elementor-7499 .elementor-element.elementor-element-49008c6 .elementor-lab
 	}
 
 	.elementor-7499 .elementor-element.elementor-element-5892468 {
-		margin-top: 71px;
-		margin-bottom: 71px;
+	    padding-top: 71px;
+	    padding-bottom: 71px;
 	}
-
+	
+	.elementor-7499 .elementor-element.elementor-element-5892468>.elementor-background-overlay {
+		background-image: url(../files/Fondo-7.jpg);
+		opacity: 1;
+	}
+	
 	.elementor-7499 .elementor-element.elementor-element-3afd3d2 {
 		width: 100%;
 	}
