@@ -10,6 +10,7 @@
 	<meta property="og:image" content="https://yoli-y-sebas-nos-casamos.github.io/files/passport.png" />
 	<meta property="og:image:width" content="200" />
 	<meta property="og:image:height" content="200" />
+	<meta property="og:url" content="https://yoli-y-sebas-nos-casamos.github.io" />
 	<meta property="og:site_name" content="Invitacion Digital" />
 	<meta property="fb:app_id" content="928977633900253" />
 	<meta name='robots' content='noindex, nofollow' />
@@ -727,13 +728,17 @@
 												</select>
 											</div>
 										</div>
-										<div class="elementor-field-type-textarea elementor-field-group elementor-column elementor-field-group-field_93e3f10 elementor-col-100 elementor-sm-50 elementor-field-required">
-											<label for="form-field-field_dc2f9ea" class="elementor-field-label">Nombre </label>
-											<textarea class="elementor-field-textual elementor-field elementor-size-sm" name="Nombre" id="form-field-field_dc2f9ea" rows="1" required="required" aria-required="true"></textarea>
+										<div class="elementor-field-type-text elementor-field-group elementor-column elementor-field-group-field_93e3f10 elementor-col-100 elementor-field-required">
+											<label for="form-field-field_dc2f9ea" class="elementor-field-label">Nombres de los asistentes </label>
+											<input type="text" name="Nombre" id="form-field-field_dc2f9ea" class="elementor-field-textual elementor-field elementor-size-sm" required="required" aria-required="true">
 										</div>
 										<div class="elementor-field-type-number elementor-field-group elementor-column elementor-field-group-field_1ea47e5 elementor-col-100 elementor-sm-50 elementor-field-required">
-											<label for="form-field-field_1ea47e5" class="elementor-field-label">Número invitados </label>
-											<input type="number" name="Invitados" id="form-field-field_1ea47e5" class="elementor-field elementor-size-sm  elementor-field-textual" aria-required="true" min="1" max="24">
+											<label for="form-field-field_1ea47e5" class="elementor-field-label">Nº de adultos </label>
+											<input type="number" name="Adultos" id="form-field-field_1ea47e5" class="elementor-field elementor-size-sm elementor-field-textual" aria-required="true" min="1" max="9">
+										</div>
+										<div class="elementor-field-type-number elementor-field-group elementor-column elementor-field-group-field_1ea47e5 elementor-col-100 elementor-sm-50 elementor-field-required">
+											<label for="form-field-field_1ea47e5" class="elementor-field-label">Nº de niños </label>
+											<input type="number" name="Niños" id="form-field-field_1df3dg6" class="elementor-field elementor-size-sm elementor-field-textual" aria-required="true" min="0" max="9">
 										</div>
 										<div class="elementor-field-type-select elementor-field-group elementor-column elementor-field-group-field_ed1faad elementor-col-100 elementor-sm-50 elementor-field-required">
 											<label for="form-field-field_ed1faad" class="elementor-field-label">Servicio autobús </label>
@@ -745,13 +750,13 @@
 												</select>
 											</div>
 										</div>
-										<div class="elementor-field-type-textarea elementor-field-group elementor-column elementor-field-group-field_bc74067 elementor-col-100 elementor-sm-50">
+										<div class="elementor-field-type-text elementor-field-group elementor-column elementor-field-group-field_bc74067 elementor-col-100 elementor-sm-50">
 											<label for="form-field-field_bc74067" class="elementor-field-label">Nº de plazas. </label>
-											<textarea class="elementor-field-textual elementor-field elementor-size-sm" name="Plazas" id="form-field-field_bc74067" rows="1" aria-required="true"></textarea>
+											<input type="number" name="Plazas" id="form-field-field_bc74067" class="elementor-field elementor-size-sm elementor-field-textual" aria-required="true" min="1" max="9">
 										</div>
-										<div class="elementor-field-type-textarea elementor-field-group elementor-column elementor-field-group-field_01b0088 elementor-col-100">
+										<div class="elementor-field-type-text elementor-field-group elementor-column elementor-field-group-field_01b0088 elementor-col-100">
 											<label for="form-field-field_01b0088" class="elementor-field-label">Escríbe tu canción que no puede faltar </label>
-											<textarea class="elementor-field-textual elementor-field elementor-size-sm" name="Cancion" id="form-field-field_01b0088" rows="1"></textarea>
+											<input type="text" name="Cancion" id="form-field-field_01b0088" class="elementor-field-textual elementor-field elementor-size-sm">
 										</div>
 										<div class="elementor-field-type-checkbox elementor-field-group elementor-column elementor-field-group-email elementor-col-100 elementor-sm-100">
 											<label for="form-field-email" class="elementor-field-label">Especificaciones alimenticias </label>
@@ -782,7 +787,6 @@
 												</span>
 											</div>
 										</div>
-										<input type="hidden" name="Alimentacion" id="checkAlimentacon" value=""/>
 										<div class="elementor-field-type-textarea elementor-field-group elementor-column elementor-field-group-message elementor-col-100">
 											<label for="form-field-message" class="elementor-field-label">Escríbenos cualquier duda. </label>
 											<textarea class="elementor-field-textual elementor-field elementor-size-sm" name="Dudas" id="form-field-message" rows="7"></textarea>
@@ -899,9 +903,11 @@
 		function changeRequired() {
 			if (document.getElementById("form-field-name").value == "Sí, encantado"){
 				document.getElementById("form-field-field_1ea47e5").setAttribute('required','required');
+				document.getElementById("form-field-field_1df3dg6").setAttribute('required','required');
 				document.getElementById("form-field-field_ed1faad").setAttribute('required','required');
 			} else {
 				document.getElementById("form-field-field_1ea47e5").removeAttribute('required');
+				document.getElementById("form-field-field_1df3dg6").removeAttribute('required');
 				document.getElementById("form-field-field_ed1faad").removeAttribute('required');
 				document.getElementById("form-field-field_bc74067").removeAttribute('required');
 			}
