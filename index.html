@@ -720,8 +720,8 @@
 										<div class="elementor-field-type-select elementor-field-group elementor-column elementor-field-group-name elementor-col-100 elementor-field-required">
 											<label for="form-field-name" class="elementor-field-label">¿Asistirás?</label>
 											<div class="elementor-field elementor-select-wrapper ">
-												<select name="Asistencia" id="form-field-name" class="elementor-field-textual elementor-size-sm" required="required" aria-required="true">
-													<option>Confirma asistencia</option>
+												<select name="Asistencia" id="form-field-name" class="elementor-field-textual elementor-size-sm" required="required" aria-required="true" onchange="changeRequired()">
+													<option></option>
 													<option value="Sí, encantado">Sí, encantado</option>
 													<option value="No lo siento.">No lo siento.</option>
 												</select>
@@ -729,17 +729,17 @@
 										</div>
 										<div class="elementor-field-type-textarea elementor-field-group elementor-column elementor-field-group-field_93e3f10 elementor-col-100 elementor-sm-50 elementor-field-required">
 											<label for="form-field-field_dc2f9ea" class="elementor-field-label">Nombre </label>
-											<textarea class="elementor-field-textual elementor-field elementor-size-sm" name="Nombre" id="form-field-field_dc2f9ea" rows="1"required="required" aria-required="true"></textarea>
+											<textarea class="elementor-field-textual elementor-field elementor-size-sm" name="Nombre" id="form-field-field_dc2f9ea" rows="1" required="required" aria-required="true"></textarea>
 										</div>
 										<div class="elementor-field-type-number elementor-field-group elementor-column elementor-field-group-field_1ea47e5 elementor-col-100 elementor-sm-50 elementor-field-required">
 											<label for="form-field-field_1ea47e5" class="elementor-field-label">Número invitados </label>
-											<input type="number" name="Invitados" id="form-field-field_1ea47e5" class="elementor-field elementor-size-sm  elementor-field-textual" required="required" aria-required="true" min="1" max="24">
+											<input type="number" name="Invitados" id="form-field-field_1ea47e5" class="elementor-field elementor-size-sm  elementor-field-textual" aria-required="true" min="1" max="24">
 										</div>
 										<div class="elementor-field-type-select elementor-field-group elementor-column elementor-field-group-field_ed1faad elementor-col-100 elementor-sm-50 elementor-field-required">
 											<label for="form-field-field_ed1faad" class="elementor-field-label">Servicio autobús </label>
 											<div class="elementor-field elementor-select-wrapper ">
-												<select name="Autobus" id="form-field-field_ed1faad" class="elementor-field-textual elementor-size-sm" required="required" aria-required="true">
-													<option>Elige una opción</option>
+												<select name="Autobus" id="form-field-field_ed1faad" class="elementor-field-textual elementor-size-sm" aria-required="true" onchange="changeRequiredBus()">
+													<option></option>
 													<option value="Si, gracias">Si, gracias</option>
 													<option value="No, gracias">No, gracias</option>
 												</select>
@@ -747,7 +747,7 @@
 										</div>
 										<div class="elementor-field-type-textarea elementor-field-group elementor-column elementor-field-group-field_bc74067 elementor-col-100 elementor-sm-50">
 											<label for="form-field-field_bc74067" class="elementor-field-label">Nº de plazas. </label>
-											<textarea class="elementor-field-textual elementor-field elementor-size-sm" name="Plazas" id="form-field-field_bc74067" rows="1"></textarea>
+											<textarea class="elementor-field-textual elementor-field elementor-size-sm" name="Plazas" id="form-field-field_bc74067" rows="1" aria-required="true"></textarea>
 										</div>
 										<div class="elementor-field-type-textarea elementor-field-group elementor-column elementor-field-group-field_01b0088 elementor-col-100">
 											<label for="form-field-field_01b0088" class="elementor-field-label">Escríbe tu canción que no puede faltar </label>
@@ -894,7 +894,26 @@
 			</div>
 		</section>
 	</div>
-
+	<script type="text/javascript">
+		function changeRequired() {
+			if (document.getElementById("form-field-name").value == "Sí, encantado"){
+				document.getElementById("form-field-field_1ea47e5").setAttribute('required','required');
+				document.getElementById("form-field-field_ed1faad").setAttribute('required','required');
+			} else {
+				document.getElementById("form-field-field_1ea47e5").removeAttribute('required');
+				document.getElementById("form-field-field_ed1faad").removeAttribute('required');
+				document.getElementById("form-field-field_bc74067").removeAttribute('required');
+			}
+		}
+		
+		function changeRequiredBus() {
+			if (document.getElementById("form-field-field_ed1faad").value == "Si, gracias"){
+				document.getElementById("form-field-field_bc74067").setAttribute('required','required');
+			} else {
+				document.getElementById("form-field-field_bc74067").removeAttribute('required');
+			}
+		}
+	</script>
 	<script type="text/javascript" src='js/footer.js'></script>
 	<link rel='stylesheet' type='text/css' id='e-animations-css' href='css/animations.min.css' media='all' />
 	<script id='astra-theme-js-js-extra'>
@@ -930,10 +949,10 @@
 	<script id='wp-i18n-js-after'>
 		wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
 	</script>
-	<script id='elementor-pro-frontend-js-before'>
+	<!--<script id='elementor-pro-frontend-js-before'>
 		var ElementorProFrontendConfig = {"nonce":"6c68a9ffb2","urls":{"assets":"https:\/\/yoli-y-sebas-nos-casamos.github.io\/","rest":"https:\/\/yoli-y-sebas-nos-casamos.github.io\/js\/"},"shareButtonsNetworks":{"facebook":{"title":"Facebook","has_counter":true},"twitter":{"title":"Twitter"},"linkedin":{"title":"LinkedIn","has_counter":true},"pinterest":{"title":"Pinterest","has_counter":true},"reddit":{"title":"Reddit","has_counter":true},"vk":{"title":"VK","has_counter":true},"odnoklassniki":{"title":"OK","has_counter":true},"tumblr":{"title":"Tumblr"},"digg":{"title":"Digg"},"skype":{"title":"Skype"},"stumbleupon":{"title":"StumbleUpon","has_counter":true},"mix":{"title":"Mix"},"telegram":{"title":"Telegram"},"pocket":{"title":"Pocket","has_counter":true},"xing":{"title":"XING","has_counter":true},"whatsapp":{"title":"WhatsApp"},"email":{"title":"Email"},"print":{"title":"Print"}},"facebook_sdk":{"lang":"es_ES","app_id":""},"lottie":{"defaultAnimationUrl":"https:\/\/yoli-y-sebas-nos-casamos.github.io\/js"}};
 	</script>
-	<script src='js/frontend365.min.js' id='elementor-pro-frontend-js'></script>
+	<script src='js/frontend365.min.js' id='elementor-pro-frontend-js'></script>-->
 	<script src='js/waypoints.min.js' id='elementor-waypoints-js'></script>
 	<script src='js/core.min.js' id='jquery-ui-core-js'></script>
 	<script id='elementor-frontend-js-before'>
