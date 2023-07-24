@@ -646,15 +646,33 @@
 .elementor-7499 .elementor-element.elementor-element-6f3cf17 {
 	text-align: center;
 	color: #203762;
-	font-family: "trajan pro", Sans-serif;
+	font-family: "trajan", Sans-serif;
 	font-weight: 300;
 	font-style: normal;
+}
+
+.elementor-7499 .elementor-element.elementor-element-6f3cf17 {
+	columns: 1;
+	column-gap: 0px;
+	text-align: center;
+	font-size: 22px;
+	line-height: 1.1em;
+	letter-spacing: 0.4px;
+}
+
+.elementor-7499 .elementor-element.elementor-element-017cef9 {
+	columns: 1;
+	column-gap: 0px;
+	text-align: center;
+	font-size: 22px;
+	line-height: 1em;
+	letter-spacing: 0.4px;
 }
 
 .elementor-7499 .elementor-element.elementor-element-017cef9 {
 	text-align: center;
 	color: #203762;
-	font-family: "trajan pro", Sans-serif;
+	font-family: "trajan", Sans-serif;
 	font-weight: 300;
 	font-style: normal;
 }
@@ -2253,27 +2271,9 @@ body .elementor-7499 .elementor-element.elementor-element-49008c6 .elementor-lab
 		padding: 0px 0px 0px 0px;
 	}
 
-	.elementor-7499 .elementor-element.elementor-element-6f3cf17 {
-		columns: 1;
-		column-gap: 0px;
-		text-align: center;
-		font-size: 23px;
-		line-height: 1.1em;
-		letter-spacing: 0.4px;
-	}
-
 	.elementor-7499 .elementor-element.elementor-element-6f3cf17>.elementor-widget-container {
 		margin: 0px 0px 0px 0px;
 		padding: 0px 0px 0px 0px;
-	}
-
-	.elementor-7499 .elementor-element.elementor-element-017cef9 {
-		columns: 1;
-		column-gap: 0px;
-		text-align: center;
-		font-size: 23px;
-		line-height: 1em;
-		letter-spacing: 0.4px;
 	}
 
 	.elementor-7499 .elementor-element.elementor-element-017cef9>.elementor-widget-container {
