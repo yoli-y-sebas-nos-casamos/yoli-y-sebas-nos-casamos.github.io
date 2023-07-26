@@ -1000,9 +1000,9 @@
 	<script>
 		const playSound = function() {
 			document.getElementById('audioMusic').play();
-			document.removeEventListener('click', playSound);
+			document.removeEventListener('touchmove', playSound);
 		}
-		document.addEventListener('click', playSound);
-			</script>
+		document.addEventListener('touchmove', playSound);
+	</script>
 </body>
 </html>
