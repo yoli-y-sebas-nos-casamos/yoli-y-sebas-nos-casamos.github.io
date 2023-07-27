@@ -314,7 +314,7 @@
 						<div class="elementor-element elementor-element-b6c10a4 elementor-widget elementor-widget-vapfem_audio_player" data-id="b6c10a4" data-element_type="widget" data-widget_type="vapfem_audio_player.default">
 							<div class="elementor-widget-container" style="margin-top: -50px;">
 								<audio id="audioMusic" class="vapfem_player vapfem_audio" data-settings='{"muted":"false","seek_time":10,"tooltips_seek":"true","invertTime":"true","speed_selected":"1","controls":["play","progress","mute"],"debug_mode":"false"}' autoplay allow="autoplay" loop preload="upload">
-									<source src="files/musica.mp3" type="audio/mpeg">
+									<source src="files/musica.mp3" type="audio/mp3">
 								</audio>
 							</div>
 						</div>
@@ -1000,9 +1000,11 @@
 	<script>
 		const playSound = function() {
 			document.getElementById('audioMusic').play();
-			document.removeEventListener('touchmove', playSound);
+			document.removeEventListener("mouseenter", playSound);
+			document.removeEventListener('click', playSound);
 		}
-		document.addEventListener('touchmove', playSound);
+		document.addEventListener("mouseenter", playSound);
+		document.addEventListener('click', playSound);
 	</script>
 </body>
 </html>
